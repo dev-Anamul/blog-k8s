@@ -1,0 +1,48 @@
+# common
+NODE_ENV=development
+PORT=3000
+API_BASE_URL=http://localhost:5045
+CLIENT_BASE_URL=http://localhost:5046
+
+# MONGO NODE'S
+MONGO1=mongo-master
+MONGO_PORT1=27017
+MONGO2=mongo-slave-1
+MONGO_PORT2=27018
+MONGO3=mongo-slave-2
+MONGO_PORT3=27019
+
+# MONGO CREDENTIALS
+DB_NAME=arc-one
+DB_USER=root
+DB_PASS=admin123
+MONGO_DB_REPLICA=arc-one-rs
+
+# LOG DATABASE
+MONGO_LOG_URL=mongodb://root:admin123@mongo:27017/logs?authSource=admin
+
+# JWT
+JWT_ALGORITHM=HS256
+JWT_SECRET=secret
+JWT_EXPIRES_IN=1d
+
+# REFRESH TOKEN
+REFRESH_SECRET=refresh-secret
+REFRESH_EXPIRES_IN=7d
+
+# REDIS
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+
+# MAIL
+MAIL_HOST=smtp.zoho.com
+MAIL_PORT=465
+MAIL_USER=notifications@excelbd.com
+MAIL_PASS=ETL&aliV$P@783
+MAIL_FROM=notifications@excelbd.com
+MAIL_TO=notifications@excelbd.com
+
+#  multer
+MAX_FILE_SIZE=1000000
+UPLOAD_PATH=./uploads
