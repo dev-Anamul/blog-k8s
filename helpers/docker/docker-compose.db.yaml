@@ -1,0 +1,58 @@
+services:
+  # MongoDB master node
+  mongo-master:
+    image: mongo:6.0
+    container_name: mongo-master
+    ports:
+      - 27017:27017
+    command: mongod --replSet arc-one-rs --bind_ip_all
+    volumes:
+      - mongo-master:/data/db
+    networks:
+      - arc-one-network
+
+  # MongoDB slave node 1
+  mongo-slave-1:
+    image: mongo:6.0
+    container_name: mongo-slave-1
+    command: mongod --replSet arc-one-rs --bind_ip_all
+    volumes:
+      - mongo-slave-1:/data/db
+    networks:
+      - arc-one-network
+
+  # MongoDB slave node 2
+  mongo-slave-2:
+    image: mongo:6.0
+    container_name: mongo-slave-2
+    command: mongod --replSet arc-one-rs --bind_ip_all
+    volumes:
+      - mongo-slave-2:/data/db
+    networks:
+      - arc-one-network
+
+  # Redis database
+  redis:
+    image: redis/redis-stack:latest
+    container_name: redis
+    ports:
+      - "8055:8001"
+    volumes:
+      - arc-one-redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - arc-one-network
+
+volumes:
+  mongo-master:
+  mongo-slave-1:
+  mongo-slave-2:
+  arc-one-redis:
+
+networks:
+  arc-one-network:
+    external: true
