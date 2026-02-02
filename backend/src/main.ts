@@ -39,9 +39,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
 
   if (process.env.NODE_ENV !== 'production') {
-    SwaggerModule.setup('/api-docs', app, document, {
-      yamlDocumentUrl: '/api-docs/swagger.yaml',
-      jsonDocumentUrl: '/api-docs/swagger.json',
+    SwaggerModule.setup('/api/api-docs', app, document, {
+      yamlDocumentUrl: '/api/api-docs/swagger.yaml',
+      jsonDocumentUrl: '/api/api-docs/swagger.json',
     });
   }
 
