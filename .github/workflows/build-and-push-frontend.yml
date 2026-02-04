@@ -43,7 +43,7 @@ jobs:
       - name: define the version
         run: |
           echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
-          echo "IMAGE_NAME=${{ env.DOCKER_USERNAME }}/blog-frontend:${{ env.VERSION }}" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${{ env.DOCKER_USERNAME }}/blog-frontend:${{ github.event.inputs.version }}" >> $GITHUB_ENV
 
       - name: build docker image
         run: |
